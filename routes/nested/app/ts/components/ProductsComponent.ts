@@ -2,14 +2,14 @@
  * Angular
  */
 import {
-  NgModule,
-  Component
+    NgModule,
+    Component
 } from '@angular/core';
 import {
-  RouterModule,
-  ActivatedRoute,
-  Router,
-  Routes
+    RouterModule,
+    ActivatedRoute,
+    Router,
+    Routes
 } from '@angular/router';
 
 /*
@@ -21,8 +21,8 @@ import {SportifyComponent} from 'components/products/SportifyComponent';
 import {ByIdComponent} from 'components/products/ByIdComponent';
 
 @Component({
-  selector: 'products',
-  template: `
+    selector: 'products',
+    template: `
   <h2>Products</h2>
 
   <div class="navLinks">
@@ -40,38 +40,37 @@ import {ByIdComponent} from 'components/products/ByIdComponent';
 })
 
 export class ProductsComponent {
-  constructor(private router: Router, private route: ActivatedRoute) {
-  }
+    constructor(private router: Router, private route: ActivatedRoute) {
+    }
 
-  goToProduct(id:string): void {
-    this.router.navigate(['./', id], {relativeTo: this.route});
-  }
+    goToProduct(id: string): void {
+        this.router.navigate(['./', id], { relativeTo: this.route });
+    }
 }
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'main', pathMatch: 'full' },
-  { path: 'main', component: MainComponent },
-  { path: ':id', component: ByIdComponent },
-  { path: 'interest', component: InterestComponent },
-  { path: 'sportify', component: SportifyComponent },
+    { path: '', redirectTo: 'main', pathMatch: 'full' },
+    { path: 'main', component: MainComponent },
+    { path: ':id', component: ByIdComponent },
+    { path: 'interest', component: InterestComponent },
+    { path: 'sportify', component: SportifyComponent },
 ];
 
 @NgModule({
-  declarations: [
-    ProductsComponent,
-    MainComponent,
-    InterestComponent,
-    SportifyComponent,
-    ByIdComponent
-  ],
-  exports: [
-    ProductsComponent,
-    MainComponent,
-    InterestComponent,
-    SportifyComponent,
-    ByIdComponent
-  ],
-  imports: [ RouterModule ]
+    declarations: [
+        ProductsComponent,
+        MainComponent,
+        InterestComponent,
+        SportifyComponent,
+        ByIdComponent
+    ],
+    exports: [
+        ProductsComponent,
+        MainComponent,
+        InterestComponent,
+        SportifyComponent,
+        ByIdComponent
+    ],
+    imports: [RouterModule]
 })
-export class ProductsComponentModule {}
-
+export class ProductsComponentModule { }

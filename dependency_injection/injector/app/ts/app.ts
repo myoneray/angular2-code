@@ -5,9 +5,9 @@ import {
   Component,
   ReflectiveInjector,
 } from '@angular/core';
-import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 /*
  * Webpack
@@ -19,7 +19,7 @@ require('css/styles.css');
  */
 class MyService {
   getValue(): string {
-    return 'a value';
+    return 'hi 麦子';
   }
 }
 
@@ -30,16 +30,15 @@ class MyService {
   `
 })
 class DiSampleApp {
-  myService: MyService;
 
-  constructor() {
+  constructor(private myService :MyService) {
     let injector: any = ReflectiveInjector.resolveAndCreate([MyService]);
     this.myService = injector.get(MyService);
     console.log('Same instance?', this.myService === injector.get(MyService));
   }
 
   invokeService(): void {
-    console.log('MyService returned', this.myService.getValue());
+    console.log('MyService returned:', this.myService.getValue());
   }
 }
 
@@ -47,9 +46,9 @@ class DiSampleApp {
 @NgModule({
   declarations: [ DiSampleApp ],
   imports: [ BrowserModule ],
-  bootstrap: [ DiSampleApp ]
+  bootstrap: [ DiSampleApp ],
+  providers: [MyService],
 })
 class DiSampleAppModule {}
 
 platformBrowserDynamic().bootstrapModule(DiSampleAppModule);
-
